@@ -1,16 +1,13 @@
 #!/usr/bin/python3
-"""
-Prints different results of
-a request
-"""
-import urllib.request
+'''Intranet script'''
 
 
-if __name__ == "__main__":
-    url = "https://intranet.hbtn.io/status"
-    with urllib.request.urlopen(url) as response:
-        html = response.read()
+if __name__ == '__main__':
+    import urllib.request
+
+    with urllib.request.urlopen('https://intranet.hbtn.io/status') as res:
+        content = res.read()
         print("Body response:")
-        print("-\t type:", type(html))
-        print("-\t content:", html)
-        print("-\t utf8 content:", html.decode("utf-8"))
+        print("\t- type: {}".format(type(content)))
+        print("\t- content: {}".format(content))
+        print("\t- utf8 content: {}".format(content.decode('utf-8')))
